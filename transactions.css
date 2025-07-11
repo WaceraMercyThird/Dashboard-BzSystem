@@ -1,0 +1,143 @@
+.transaction-title {
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  background: #f4f6f8;
+  border-left: 5px solid #27ae60;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
+}
+
+.transaction-title h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.transaction-title i {
+  font-size: 22px;
+  color: #27ae60;
+}
+
+.subtitle {
+  color: #555;
+  font-size: 0.93rem;
+  margin-top: 5px;
+}
+
+
+/* Container */
+.table-container {
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+/* Table */
+.transaction-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.transaction-table thead th {
+  text-align: left;
+  background: #f8f9fa;
+  padding: 14px 18px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.transaction-table tbody tr {
+  background: #fdfdfd;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  transition: transform 0.15s ease;
+}
+
+.transaction-table tbody tr:hover {
+  transform: scale(1.01);
+  background-color: #f9f9f9;
+}
+
+.transaction-table tbody td {
+  padding: 16px 18px;
+  font-size: 0.95rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+/* First and last column rounded corners */
+.transaction-table tbody tr td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.transaction-table tbody tr td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Status Badges */
+.tag {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.tag.success {
+  background-color: #e6f5ea;
+  color: #27ae60;
+  border: 1px solid #27ae60;
+}
+
+.tag.warning {
+  background-color: #fff9e6;
+  color: #f1c40f;
+  border: 1px solid #f1c40f;
+}
+
+.tag.danger {
+  background-color: #fdecea;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+/* Responsive Text Alignment */
+@media (max-width: 600px) {
+  .transaction-table thead {
+    display: none;
+  }
+
+  .transaction-table tbody td {
+    display: block;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .transaction-table tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 20px;
+    font-weight: bold;
+    text-align: left;
+    color: #888;
+  }
+
+  .transaction-table tbody tr {
+    margin-bottom: 15px;
+    display: block;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  }
+}

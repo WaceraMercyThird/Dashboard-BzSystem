@@ -1,0 +1,178 @@
+/* Sidebar Base */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background: #1e1e2f;
+  color: #fff;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.sidebar-header h3 {
+  font-size: 18px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#toggleBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Menu */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.sidebar-menu li {
+  padding: 15px 20px;
+}
+
+.sidebar-menu li.active,
+.sidebar-menu li:hover {
+  background: #31314a;
+}
+
+.sidebar-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.sidebar-menu li i {
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* On collapse, hide text but keep icons */
+.sidebar.collapsed .sidebar-menu li span {
+  display: none;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 220px;
+  padding: 40px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: 60px;
+}
+
+/* navbar Summary Cards */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card.success { background: #2ecc71; }
+.card.warning { background: #f1c40f; }
+.card.danger  { background: #e74c3c; }
+.card.info    { background: #3498db; }
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table th, .transaction-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.transaction-table .tag {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.85em;
+  color: #fff;
+}
+
+.tag.success { background: #2ecc71; }
+.tag.warning { background: #f1c40f; color: #000; }
+.tag.danger  { background: #e74c3c; }
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    left: -220px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+  
+
+  .sidebar.collapsed {
+    width: 220px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar.open ~ .main-content {
+    margin-left: 220px;
+  }
+
+  #toggleBtn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background: #1e1e2f;
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+
+  .sidebar-header h3 {
+    display: none;
+  }
+}
