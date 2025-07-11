@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="transactions.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-<body onload="initDashboard()">
+<body>
 
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
@@ -28,12 +28,12 @@
   <!-- Main content -->
   <div class="main-content">
     <div class="transaction-title">
-  <h2><i class="fas fa-database"></i> Transactions</h2>
-  <p class="subtitle">Review all recent back-office transactions including status, type, and amount.</p>
-</div>
+      <h2><i class="fas fa-database"></i> Transactions</h2>
+      <p class="subtitle">Review all recent back-office transactions including status, type, and amount.</p>
+    </div>
 
-      <section class="content" id="dashboard">
-      <h2>Hello, <span id="user-name">User</span> Jane Doe</h2>
+    <section class="content" id="dashboard">
+      <h2>Hello, <span id="user-name">Jane Doe</span></h2>
 
       <!-- Summary Cards -->
       <div class="summary-cards">
@@ -46,46 +46,49 @@
       <!-- Table of Transactions -->
       <div class="table-container">
         <h3>Recent Transactions</h3>
-        <table class="transaction-table">
+        <table class="transaction-table" id="transactionTable">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>User</th>
-              <th>Amount</th>
-              <th>Status</th>
-              <th>Date</th>
+             <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Type</th>
+            <th>Date</th>
+          </tr>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>#TX1001</td>
-              <td>Mercy W.</td>
-              <td>$1,200</td>
-              <td><span class="tag success">Success</span></td>
-              <td>2025-07-10</td>
-            </tr>
-            <tr>
-              <td>#TX1002</td>
-              <td>Wacera K.</td>
-              <td>$700</td>
-              <td><span class="tag warning">Pending</span></td>
-              <td>2025-07-10</td>
-            </tr>
-            <tr>
-              <td>#TX1003</td>
-              <td>John D.</td>
-              <td>$300</td>
-              <td><span class="tag danger">Failed</span></td>
-              <td>2025-07-10</td>
-            </tr>
+          <tbody id="tableBody">
+            <!-- Sample rows -->
+           <tr><td>#TX1001</td><td>Mercy Wacera</td><td>$1,250</td><td><span class="tag success">Success</span></td><td>Deposit</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1002</td><td>Wacera K.</td><td>$500</td><td><span class="tag warning">Pending</span></td><td>Withdrawal</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1003</td><td>John Doe</td><td>$300</td><td><span class="tag danger">Failed</span></td><td>Transfer</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1004</td><td>Jane Smith</td><td>$700</td><td><span class="tag success">Success</span></td><td>Deposit</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1005</td><td>Bob Green</td><td>$150</td><td><span class="tag success">Success</span></td><td>Withdrawal</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1006</td><td>Alice</td><td>$990</td><td><span class="tag warning">Pending</span></td><td>Deposit</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1007</td><td>Chris</td><td>$860</td><td><span class="tag success">Success</span></td><td>Transfer</td><td>2025-07-10</td></tr>
+            <tr><td>#TX1008</td><td>Faith</td><td>$330</td><td><span class="tag danger">Failed</span></td><td>Withdrawal</td><td>2025-07-10</td></tr>
+            <tr><td>#TX1009</td><td>George</td><td>$210</td><td><span class="tag success">Success</span></td><td>Deposit</td><td>2025-07-10</td></tr>
+            <tr><td>#TX1010</td><td>Mary</td><td>$430</td><td><span class="tag warning">Pending</span></td><td>Transfer</td><td>2025-07-10</td></tr>
+            <tr><td>#TX1001</td><td>Mercy Wacera</td><td>$1,250</td><td><span class="tag success">Success</span></td><td>Deposit</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1002</td><td>Wacera K.</td><td>$500</td><td><span class="tag warning">Pending</span></td><td>Withdrawal</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1003</td><td>John Doe</td><td>$300</td><td><span class="tag danger">Failed</span></td><td>Transfer</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1004</td><td>Jane Smith</td><td>$700</td><td><span class="tag success">Success</span></td><td>Deposit</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1005</td><td>Bob Green</td><td>$150</td><td><span class="tag success">Success</span></td><td>Withdrawal</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1006</td><td>Alice</td><td>$990</td><td><span class="tag warning">Pending</span></td><td>Deposit</td><td>2025-07-10</td></tr>
+          <tr><td>#TX1008</td><td>Faith</td><td>$330</td><td><span class="tag danger">Failed</span></td><td>Withdrawal</td><td>2025-07-10</td></tr>
+            <tr><td>#TX1009</td><td>George</td><td>$210</td><td><span class="tag success">Success</span></td><td>Deposit</td><td>2025-07-10</td></tr>
+            
           </tbody>
         </table>
+        <div class="pagination" id="paginationControls"></div>
       </div>
     </section>
   </div>
 
+   <!-- Scripts -->
   <script src="auth.js"></script>
   <script src="dashboard.js"></script>
-  <script src="navbar.js"></script>
 </body>
 </html>
